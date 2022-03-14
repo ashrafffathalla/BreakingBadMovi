@@ -1,4 +1,4 @@
-name: bloc
+name: breaking_bad
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -29,12 +29,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
   cupertino_icons: ^1.0.2
   dio: ^4.0.4
-  flutter_bloc: ^1.0.0
-
+  flutter_bloc: ^7.0.0
+  bloc: ^7.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

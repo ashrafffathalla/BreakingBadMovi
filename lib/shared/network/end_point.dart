@@ -1,17 +1,23 @@
 import 'package:dio/dio.dart';
 
-class DioHelper
-{
+class DioHelper {
   static late Dio dio;
-  static int()
-  {
+
+  static int() {
     dio = Dio(
       BaseOptions(
-        baseUrl: '',
+        baseUrl: 'https://www.breakingbadapi.com/api/',
         receiveDataWhenStatusError: true,
         receiveTimeout: 15 * 1000,
         connectTimeout: 15 * 1000,
-      )
-    ) ;
+      ),
+    );
+  }
+
+  static Future<Response> getData({
+    required String url,
+    Map<String, dynamic>? query,
+  }) async {
+    return await dio.get(url, queryParameters: query);
   }
 }

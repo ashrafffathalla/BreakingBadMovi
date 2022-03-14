@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'layout/breakingbad_layout.dart';
+import 'layout/home_layout.dart';
 
 void main() {
   runApp(const MyApp());
