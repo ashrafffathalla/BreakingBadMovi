@@ -11,22 +11,25 @@ class BreakingBadCubit extends Cubit<BreakingBadStates> {
 
   static BreakingBadCubit get(context) => BlocProvider.of(context);
 
-// get all characters method
-  CharacterModel? characterModel;
- //List <CharacterModel>? allCharacters = [];
-  void getAllCharacters()
+   List<CharacterModel>? characterModel;
+
+  Future <List<CharacterModel>>? getAllCharacters()
   {
     emit(GetAllCharactersLoadingState());
     DioHelper.getData(
       url: Characters,
     ).then((value){
-
-      characterModel = CharacterModel.fromJson(value.data);
+      var jsonString = value.data;
+      return CharacterModel.fromJson(jsonString);
       emit(GetAllCharactersSuccessState());
     }).catchError((error)
     {
       print(error.toString());
       emit(GetAllCharactersErrorState());
     });
+  }
+  ///to get data call this
+  getData(){
+    characterModel = getAllCharacters();
   }
 }
