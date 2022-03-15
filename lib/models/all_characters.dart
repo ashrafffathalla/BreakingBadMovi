@@ -1,29 +1,27 @@
-class Character
+class CharacterModel
 {
-  late int char_id;
-  late String name;
-  late String img;
-  late String nickname;
-  late List<dynamic> occupation;
-  late String status;
-  late List<dynamic> appearance;
-  late String portrayed;
-  late String category;
-  late List<dynamic> betterCallSaulAppearance;//better_call_saul_appearance
+  int? charId;
+  String? name;
+  //List<CharacterModel>? occupation;
+  String? img;
+  String? status;
+  String? nickname;
+  //List<CharacterModel>? appearance;
+  String? portrayed;
+  String? category;
+  //List<Null>? betterCallSaulAppearance;//better_call_saul_appearance
 
-  Character.fromJson(Map<String, dynamic>json)
+  CharacterModel.fromJson( Map<String, dynamic> json)
   {
-    char_id = json["char_id"];
-    name = json["name"];
-    img = json["img"];
-    nickname = json["nickname"];
-    occupation = json["occupation"];
-    status = json["status"];
-    appearance = json["appearance"];
-    portrayed = json["portrayed"];
-    category = json["category"];
-    betterCallSaulAppearance = json["better_call_saul_appearance"];
+    charId = json['char_id'];
+    name = json['name'];
+    //occupation = json['occupation'].cast<String>();
+    img = json['img'];
+    status = json['status'];
+    nickname = json['nickname'];
+   // appearance = json['appearance'].cast<int>();
+    portrayed = json['portrayed'];
+    category = json['category'];
+   // betterCallSaulAppearance = json["better_call_saul_appearance"];
   }
-
-
 }
