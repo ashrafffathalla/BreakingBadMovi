@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'layout/home_layout.dart';
 
@@ -15,7 +16,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        appBarTheme:const AppBarTheme(
+          backgroundColor: Colors.orangeAccent,
+          backwardsCompatibility: false,
+          elevation: 0,
+          systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Colors.transparent,
+              statusBarIconBrightness: Brightness.dark
+          ),
+        )
       ),
       home: const BreakingBadLayout(),
     );
