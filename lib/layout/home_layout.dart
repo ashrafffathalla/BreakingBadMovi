@@ -11,15 +11,20 @@ class BreakingBadLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<BreakingBadCubit, BreakingBadStates>(
-      listener: (context, state) {},
+     listener: (context, state)
+     {
+
+     },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
             title: const Text('Breaking Bad'),
           ),
-          body: buildCharactersList(),
+          body: CharacterItems(),
         );
       },
     );
   }
+
+
 }

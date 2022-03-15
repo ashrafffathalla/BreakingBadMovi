@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:breaking_bad/layout/cubit/cubit.dart';
 import 'package:breaking_bad/shared/bloc_observer.dart';
+import 'package:breaking_bad/test_widgets/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
             ),
           )
         ),
-        home: const BreakingBadLayout(),
+        home:  TestWidget(),
       ),
     );
   }

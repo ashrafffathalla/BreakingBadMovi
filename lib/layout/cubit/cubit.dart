@@ -11,16 +11,16 @@ class BreakingBadCubit extends Cubit<BreakingBadStates> {
 
   static BreakingBadCubit get(context) => BlocProvider.of(context);
 
-   List<CharacterModel>? characterModel;
+   List<CharacterModel>? characterModel = [] ;
 
-  Future <List<CharacterModel>>? getAllCharacters()
+  Future<List<CharacterModel>>? getAllCharacters()
   {
     emit(GetAllCharactersLoadingState());
     DioHelper.getData(
       url: Characters,
     ).then((value){
-      var jsonString = value.data;
-      return CharacterModel.fromJson(jsonString);
+     //characterModel =  CharacterModel.fromJson(value.data) as List<CharacterModel>?;
+     print(value.toString());
       emit(GetAllCharactersSuccessState());
     }).catchError((error)
     {
@@ -30,6 +30,6 @@ class BreakingBadCubit extends Cubit<BreakingBadStates> {
   }
   ///to get data call this
   getData(){
-    characterModel = getAllCharacters();
+    characterModel = getAllCharacters() as List<CharacterModel>?;
   }
 }
