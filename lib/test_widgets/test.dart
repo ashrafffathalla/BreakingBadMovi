@@ -25,19 +25,19 @@ class TestWidget extends StatelessWidget
       },
     );
   }
-  Widget buildGridView(List<CharacterModel> list)=>GridView.count(
+  Widget buildGridView(List<CharacterModel> model)=>GridView.count(
     crossAxisCount: 2,
     childAspectRatio: 2 / 3,
     crossAxisSpacing: 12,
     mainAxisSpacing:12,
     physics:BouncingScrollPhysics() ,
     children: List.generate(
-      10,
-          (index) =>  buildGrid(),
+      model.length,
+          (index) =>  buildGrid(model[index]),
     ),
   );
   /////////
-  Widget buildGrid()=>Container(
+  Widget buildGrid(CharacterModel model )=>Container(
     width: double.infinity,
     margin: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
     padding: const EdgeInsets.all(4),
