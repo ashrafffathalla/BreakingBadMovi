@@ -1,3 +1,4 @@
+
 import 'package:breaking_bad/layout/cubit/cubit.dart';
 import 'package:breaking_bad/layout/cubit/states.dart';
 import 'package:breaking_bad/models/all_characters.dart';
@@ -19,22 +20,24 @@ class TestWidget extends StatelessWidget
       builder: (context, state)
       {
        return Scaffold(
-          body: GridView.count(
-            crossAxisCount: 2,
-            childAspectRatio: 2 / 3,
-            crossAxisSpacing: 12,
-            mainAxisSpacing:12,
-            physics:BouncingScrollPhysics() ,
-            children: List.generate(
-                10,
-                    (index) =>  buildGrid(BreakingBadCubit.get(context).characterModel![index]),
-            ),
-          ),
+          body: buildGridView(BreakingBadCubit.get(context).characterModel!),
         );
       },
     );
   }
-  Widget buildGrid(CharacterModel model )=>Container(
+  Widget buildGridView(List<CharacterModel> list)=>GridView.count(
+    crossAxisCount: 2,
+    childAspectRatio: 2 / 3,
+    crossAxisSpacing: 12,
+    mainAxisSpacing:12,
+    physics:BouncingScrollPhysics() ,
+    children: List.generate(
+      10,
+          (index) =>  buildGrid(),
+    ),
+  );
+  /////////
+  Widget buildGrid()=>Container(
     width: double.infinity,
     margin: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
     padding: const EdgeInsets.all(4),
@@ -60,7 +63,7 @@ class TestWidget extends StatelessWidget
         color: Colors.black54,
         alignment: Alignment.bottomCenter,
         child:  Text(
-          '${model.name}',
+          'model.name',
           overflow: TextOverflow.ellipsis,
           maxLines: 2,
           textAlign: TextAlign.center,
